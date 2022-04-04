@@ -1,8 +1,10 @@
 //global variable
 int smallerGeometryDimension;
-float rectFaceX, recFaceY, rectFaceWidth, rectFaceHeight;
+float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
 float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
+float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, reset;
+float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 //
 //display geometry
 fullScreen();
@@ -23,18 +25,29 @@ if(orientation==p) println(instruct);
 //variable population
 smallerGeometryDimension=appHeight;
 rectFaceX = appWidth*1/2 - smallerGeometryDimension*1/2;
-recFaceY = appHeight*0;
-rectFaceWidth =smallerGeometryDimension ;
+rectFaceY = appHeight*0;
+rectFaceWidth = smallerGeometryDimension ;
 rectFaceHeight = smallerGeometryDimension;
 faceX = appWidth*1/2;
 faceY = appHeight*1/2;
 faceDiameter = smallerGeometryDimension;
-leftEyeX = appWidth*1/2 - smallerGeometryDimension*1/4;
+leftEyeX = appWidth*1/2 - smallerGeometryDimension*1/5.5;
 leftEyeY = appHeight*1/2 - smallerGeometryDimension*1/4;
-rightEyeX = appWidth*1/2 - smallerGeometryDimension*1/4;
-rightEyeY = appHeight*1/2 - smallerGeometryDimension*1/4;
+rightEyeX = appWidth*1/2 + smallerGeometryDimension*1/5.5;
+rightEyeY = leftEyeY;
 eyeDiameter = smallerGeometryDimension*1/4;
-
+mouthX1 = leftEyeX;
+mouthY1 = appHeight*3/4;
+mouthX2 = rightEyeX;
+mouthY2 = mouthY1;
+mouthOpen = smallerGeometryDimension*1/4;
+reset = 1;
+noseX1 = faceX;
+noseY1 = leftEyeY;
+noseX2 = noseX1 - leftEyeY*1/2;
+noseY2 = faceY;
+noseX3 = noseX1 + leftEyeY*1/2;
+noseY3 = noseY2;
 //
 //face: circle = inscribed in a square
 //center a circle on display orientation
@@ -51,13 +64,20 @@ ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
 //
 //nose
 //rect();
-//triangle();
+triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
 //
 //mouth
 //rect();
-//line();
+strokeWeight(mouthOpen);
+line(mouthX1, mouthY1, mouthX2, mouthY2);
+strokeWeight(reset);
 //
 //measle
+float measleX = random(appWidth*0, appWidth);
+float measleY = random(appHeight*0, appHeight);
+float measleDiameter = smallerGeometryDimension*1/25;
+color red=#D32A00, measleColour=red;
 //rect();
-//ellipse();
+fill(measleColour);
+ellipse(measleX, measleY, measleDiameter, measleDiameter);
 //
