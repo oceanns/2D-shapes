@@ -24,6 +24,7 @@ if(orientation==p) println(instruct);
 //
 //variable population
 smallerGeometryDimension=appHeight;
+reset = smallerGeometryDimension/smallerGeometryDimension; //returns "1"
 rectFaceX = appWidth*1/2 - smallerGeometryDimension*1/2;
 rectFaceY = appHeight*0;
 rectFaceWidth = smallerGeometryDimension ;
@@ -41,7 +42,6 @@ mouthY1 = appHeight*3/4;
 mouthX2 = rightEyeX;
 mouthY2 = mouthY1;
 mouthOpen = smallerGeometryDimension*1/4;
-reset = 1;
 noseX1 = faceX;
 noseY1 = leftEyeY;
 noseX2 = noseX1 - leftEyeY*1/2;
@@ -73,11 +73,19 @@ line(mouthX1, mouthY1, mouthX2, mouthY2);
 strokeWeight(reset);
 //
 //measle
-float measleX = random(appWidth*0, appWidth);
-float measleY = random(appHeight*0, appHeight);
-float measleDiameter = smallerGeometryDimension*1/25;
-color red=#D32A00, measleColour=red;
+float measleDiameter = random( smallerGeometryDimension*1/100 , smallerGeometryDimension*1/25);
+float measleRadius = measleDiameter*1/2;
+float measleX = random(rectFaceX+measleRadius, rectFaceX-rectFaceWidth-measleRadius);
+float measleY = random(appHeight*0+measleRadius, appHeight-measleRadius);
+Boolean nightMode=false;
+//color red=#D32A00, measleColour=red;
+color measleColour = (nightMode==false) ? color(255, random(0, 50), random(120) ) : color(255, random(0,50), 0); //ternary operator
+color whiteReset=#000000;
 //rect();
+//random values returned given other variables
+noStroke();
 fill(measleColour);
 ellipse(measleX, measleY, measleDiameter, measleDiameter);
+stroke(reset); //reset to 1 pixel
+fill(whiteReset);
 //
