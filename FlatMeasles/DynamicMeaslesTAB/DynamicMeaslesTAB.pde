@@ -28,7 +28,7 @@ void draw()
   Boolean nightMode=false;
   //color red=#D32A00, measleColour=red;
   color measleColour = (nightMode==false) ? color(255, random(0, 50), random(120) ) : color(255, random(0, 50), 0); //ternary operator
-  color whiteReset=#000000;
+  color whiteReset=#FFFFFF;
   //
   float measleRectX = measleX-measleDiameter*1/2;
   float measleRectY = measleY-measleDiameter*1/2;
