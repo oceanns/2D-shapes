@@ -1,4 +1,5 @@
 //global variable
+int appWidth, appHeight;
 int smallerGeometryDimension;
 float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
@@ -10,7 +11,8 @@ void setup()
 {
   //display geometry
   fullScreen();
-  int appWidth = displayWidth, appHeight = displayHeight;
+  appWidth = displayWidth; 
+  appHeight = displayHeight;
   println(width, height, displayWidth, displayHeight);
   println(appWidth, appHeight);
   //
@@ -51,50 +53,34 @@ void setup()
   noseX3 = noseX1 + leftEyeY*1/2;
   noseY3 = noseY2;
   //
+  //
+  //face: circle = inscribed in a square
+  //center a circle on display orientation
+  rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
+  ellipse(faceX, faceY, faceDiameter, faceDiameter);
+  //
+  //left eye
+  //rect();
+  ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
+  //
+  //right eye
+  //rect();
+  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+  //
+  //nose
+  //rect();
+  triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
+  //
+  //mouth
+  //rect();
+  strokeWeight(mouthOpen);
+  line(mouthX1, mouthY1, mouthX2, mouthY2);
+  strokeWeight(reset);
+  //
 }//end setup
 //
-void draw() {
-}//end draw
-//
-void keyPressed() {
-}//end keyPressed
-//
-void mousePressed() {
-}//end mousePressed
-//
-//end main program
-
-
-//global variable
-
-
-
-
-
-//
-//face: circle = inscribed in a square
-//center a circle on display orientation
-rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
-ellipse(faceX, faceY, faceDiameter, faceDiameter);
-//
-//left eye
-//rect();
-ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
-//
-//right eye
-//rect();
-ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
-//
-//nose
-//rect();
-triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
-//
-//mouth
-//rect();
-strokeWeight(mouthOpen);
-line(mouthX1, mouthY1, mouthX2, mouthY2);
-strokeWeight(reset);
-//
+void draw() 
+{
 //measle
 float measleDiameter = random( smallerGeometryDimension*1/100, smallerGeometryDimension*1/25);
 float measleRadius = measleDiameter*1/2;
@@ -117,3 +103,15 @@ ellipse(measleX, measleY, measleDiameter, measleDiameter);
 stroke(reset); //reset to 1 pixel
 fill(whiteReset);
 //
+}//end draw
+//
+void keyPressed() {
+}//end keyPressed
+//
+void mousePressed() {
+}//end mousePressed
+//
+//end main program
+
+
+//global variable

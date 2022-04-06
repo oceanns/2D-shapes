@@ -1,4 +1,5 @@
 //global variable
+int appHeight, appWidth;
 int smallerGeometryDimension;
 float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
@@ -6,71 +7,49 @@ float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, reset;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 //
-void setup() 
-{
-  //display geometry
-  fullScreen();
-  int appWidth = displayWidth, appHeight = displayHeight;
-  println(width, height, displayWidth, displayHeight);
-  println(appWidth, appHeight);
-  //
-  //display orientation
-  //purpose: a few comparisons of IFs to ID orientation (similar to image() aspect ratio)
-  //computer tells ud the orientation, important for phone orientation
-  //if (appWidth >= appHeight) {println("Landscpe or Square");} else {println("Portrait");}
-  String ls="Landscpae or Square", p="Portrait", DO="Display Orientation", instruct="turn yo phone";
-  String orientation = (appWidth >= appHeight) ? ls : p;
-  println(DO, orientation);
-  if (orientation==p) println(instruct);
-  //with Strings, easier to print console or canvas
-  //
-  //variable population
-  smallerGeometryDimension=appHeight;
-  reset = smallerGeometryDimension/smallerGeometryDimension; //returns "1"
-  rectFaceX = appWidth*1/2 - smallerGeometryDimension*1/2;
-  rectFaceY = appHeight*0;
-  rectFaceWidth = smallerGeometryDimension ;
-  rectFaceHeight = smallerGeometryDimension;
-  faceX = appWidth*1/2;
-  faceY = appHeight*1/2;
-  faceDiameter = smallerGeometryDimension;
-  leftEyeX = appWidth*1/2 - smallerGeometryDimension*1/5.5;
-  leftEyeY = appHeight*1/2 - smallerGeometryDimension*1/4;
-  rightEyeX = appWidth*1/2 + smallerGeometryDimension*1/5.5;
-  rightEyeY = leftEyeY;
-  eyeDiameter = smallerGeometryDimension*1/4;
-  mouthX1 = leftEyeX;
-  mouthY1 = appHeight*3/4;
-  mouthX2 = rightEyeX;
-  mouthY2 = mouthY1;
-  mouthOpen = smallerGeometryDimension*1/4;
-  noseX1 = faceX;
-  noseY1 = leftEyeY;
-  noseX2 = noseX1 - leftEyeY*1/2;
-  noseY2 = faceY;
-  noseX3 = noseX1 + leftEyeY*1/2;
-  noseY3 = noseY2;
-  //
-}//end setup
+//display geometry
+fullScreen();
+appWidth = displayWidth;
+appHeight = displayHeight;
+println(width, height, displayWidth, displayHeight);
+println(appWidth, appHeight);
 //
-void draw() {
-}//end draw
+//display orientation
+//purpose: a few comparisons of IFs to ID orientation (similar to image() aspect ratio)
+//computer tells ud the orientation, important for phone orientation
+//if (appWidth >= appHeight) {println("Landscpe or Square");} else {println("Portrait");}
+String ls="Landscpae or Square", p="Portrait", DO="Display Orientation", instruct="turn yo phone";
+String orientation = (appWidth >= appHeight) ? ls : p;
+println(DO, orientation);
+if (orientation==p) println(instruct);
+//with Strings, easier to print console or canvas
 //
-void keyPressed() {
-}//end keyPressed
-//
-void mousePressed() {
-}//end mousePressed
-//
-//end main program
-
-
-//global variable
-
-
-
-
-
+//variable population
+smallerGeometryDimension=appHeight;
+reset = smallerGeometryDimension/smallerGeometryDimension; //returns "1"
+rectFaceX = appWidth*1/2 - smallerGeometryDimension*1/2;
+rectFaceY = appHeight*0;
+rectFaceWidth = smallerGeometryDimension ;
+rectFaceHeight = smallerGeometryDimension;
+faceX = appWidth*1/2;
+faceY = appHeight*1/2;
+faceDiameter = smallerGeometryDimension;
+leftEyeX = appWidth*1/2 - smallerGeometryDimension*1/5.5;
+leftEyeY = appHeight*1/2 - smallerGeometryDimension*1/4;
+rightEyeX = appWidth*1/2 + smallerGeometryDimension*1/5.5;
+rightEyeY = leftEyeY;
+eyeDiameter = smallerGeometryDimension*1/4;
+mouthX1 = leftEyeX;
+mouthY1 = appHeight*3/4;
+mouthX2 = rightEyeX;
+mouthY2 = mouthY1;
+mouthOpen = smallerGeometryDimension*1/4;
+noseX1 = faceX;
+noseY1 = leftEyeY;
+noseX2 = noseX1 - leftEyeY*1/2;
+noseY2 = faceY;
+noseX3 = noseX1 + leftEyeY*1/2;
+noseY3 = noseY2;
 //
 //face: circle = inscribed in a square
 //center a circle on display orientation
@@ -78,7 +57,7 @@ rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
 ellipse(faceX, faceY, faceDiameter, faceDiameter);
 //
 //left eye
-//rect();
+//rect(leftEyeX);
 ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
 //
 //right eye
