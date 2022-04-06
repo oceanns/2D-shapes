@@ -51,7 +51,7 @@ noseY3 = noseY2;
 //
 //face: circle = inscribed in a square
 //center a circle on display orientation
-//rect(rectFaceX, recFaceY, rectFaceWidth, rectFaceHeight);
+rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
 ellipse(faceX, faceY, faceDiameter, faceDiameter);
 //
 //left eye
@@ -81,7 +81,12 @@ Boolean nightMode=false;
 //color red=#D32A00, measleColour=red;
 color measleColour = (nightMode==false) ? color(255, random(0, 50), random(120) ) : color(255, random(0,50), 0); //ternary operator
 color whiteReset=#000000;
-//rect();
+//
+float measleRectX = measleX-measleDiameter*1/2;
+float measleRectY = measleY-measleDiameter*1/2;
+float measleWidth = measleDiameter;
+float measleHeight = measleDiameter;
+rect(measleRectX, measleRectY, measleWidth, measleHeight);
 //random values returned given other variables
 noStroke();
 fill(measleColour);
