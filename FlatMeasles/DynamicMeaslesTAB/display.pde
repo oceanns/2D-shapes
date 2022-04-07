@@ -1,6 +1,11 @@
-void display() 
+//
+int appWidth, appHeight;
+int smallerGeometryDimension;
+//
+void displaySetup() 
 {
-appWidth = displayWidth; 
+  //display geometry
+  appWidth = displayWidth; 
   appHeight = displayHeight;
   println(width, height, displayWidth, displayHeight);
   println(appWidth, appHeight);
