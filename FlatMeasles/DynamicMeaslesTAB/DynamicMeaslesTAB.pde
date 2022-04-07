@@ -17,6 +17,7 @@ void draw()
   rightEyeDraw();
   noseDraw();
   mouthDraw();
+  imageDraw();
 }//end draw
 //
 void keyPressed() {

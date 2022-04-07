@@ -16,10 +16,10 @@ void population()
   rightEyeY = leftEyeY;
   eyeDiameter = smallerGeometryDimension*1/4;
   mouthX1 = leftEyeX;
-  mouthY1 = appHeight*3/4;
+  mouthY1 = appHeight*0.62;
   mouthX2 = rightEyeX;
   mouthY2 = mouthY1;
-  mouthOpen = smallerGeometryDimension*1/4;
+  mouthOpen = smallerGeometryDimension*0.01;
   noseX1 = faceX;
   noseY1 = leftEyeY;
   noseX2 = noseX1 - leftEyeY*1/2;
